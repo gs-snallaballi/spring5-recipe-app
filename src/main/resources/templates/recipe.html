@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipes</title>
+</head>
+<body>
+<div>
+    <h2>Recipes List</h2>
+    <table>
+        <th>Description</th>
+        <th>Cooking Time</th>
+        <th>Difficulty</th>
+        <th>Directions</th>
+        <th>Ingredients</th>
+        <tr style="align-content: center;text-align: center">
+        <div th:each="recipe : ${recipes}">
+            <td th:text="${recipe.getKey().getDescription()}"></td>
+            <td th:text="${recipe.getKey().getCookTime()}"></td>
+            <td th:text="${recipe.getKey().getDifficulty()}"></td>
+            <td th:text="${recipe.getKey().getDirections()}"></td>
+            <div th:each="ingredient : ${recipe.value}">
+                <td th:text="${ingredient.getDescription()}"></td>
+                <td th:text="${ingredient.getAmount()}"></td>
+            </div>
+        </div>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
